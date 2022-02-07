@@ -1,0 +1,4 @@
+rootProject.name = 'onlinestore'
+include 'features:home-api'
+include 'features:home-data'
+include 'libraries:mylib'
