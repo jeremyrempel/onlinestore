@@ -3,4 +3,5 @@ module onlinestore.features.home.api {
 
     requires spring.web;
     requires org.apache.commons.lang3;
+    requires spring.context;
 }

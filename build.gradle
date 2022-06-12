@@ -20,29 +20,26 @@ allprojects {
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
-        implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+        // both mongo and h2 are on classpath
+//        runtimeOnly 'org.springframework.boot:spring-boot-starter-data-mongodb'
+        runtimeOnly 'com.h2database:h2'
+
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.apache.commons:commons-lang3:3.12.0'
         implementation 'javax.inject:javax.inject:1'
 
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testImplementation 'org.testcontainers:junit-jupiter'
-        testImplementation 'org.testcontainers:mongodb'
-    }
-}
+        // java 1.6 dependency
+        // https://github.com/ReactiveX/RxJava/blob/24df131ecc012aa0591b9123b79a1f0f6a14a4f9/build.gradle#L48
+        implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 
-ext {
-    set('testcontainersVersion', "1.16.2")
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
 }
 
 dependencies {
     implementation project(':features:home-api')
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
-    }
 }
 
 tasks.named('test') {

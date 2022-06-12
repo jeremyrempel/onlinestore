@@ -35,6 +35,6 @@ public class HomeService {
     }
 
     private HomeItemApi transform(HomeItemData data) {
-        return new HomeItemApi(data.id().toString(), data.name());
+        return new HomeItemApi(data.getId(), data.getName());
     }
 }
