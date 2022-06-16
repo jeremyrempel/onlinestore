@@ -1,5 +1,5 @@
 module onlinestore.features.home.data {
-    exports com.github.jeremyrempel.onlinestore.home.data to onlinestore.features.home.api;
+    exports com.github.jeremyrempel.onlinestore.home.data;
 
     requires spring.data.commons;
     requires spring.data.jpa;
